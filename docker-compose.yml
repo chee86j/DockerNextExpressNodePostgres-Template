@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: todos_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app/src
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/todos_db
+      - PORT=3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app/server
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/todos_db
+      - PORT=4000
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+
+volumes:
+  db-data:
