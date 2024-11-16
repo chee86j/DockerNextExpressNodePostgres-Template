@@ -41,7 +41,7 @@ DATABASE_URL=postgres://postgres:password@db:5432/todos_db
 
 ## The beauty of Docker Compose: One command to build everything and one to start everything.
 
-### 1. Run the following commands to start the application using Docker Compose:
+### 1. Ensure Docker is Running & Run the following commands to start the application using Docker Compose:
 ```bash
 docker-compose down -v    
 docker-compose build --no-cache
