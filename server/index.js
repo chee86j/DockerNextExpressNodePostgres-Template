@@ -1,10 +1,13 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 4000;
 const sequelize = require('./config/db');
 const todoRoutes = require('./routes/todoRoutes');
+const userRoutes = require('./routes/userRoutes');
 
+app.use(cors());
 app.use(express.json());
 
 // Synchronize database
@@ -18,7 +21,8 @@ app.use(express.json());
 })();
 
 // Use routes
-app.use('/todos', todoRoutes);
+app.use('/users', userRoutes);
+app.use('/users', todoRoutes);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Sequelize-PostgreSQL API!');
