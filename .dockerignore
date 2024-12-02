@@ -2,6 +2,13 @@
 src/node_modules/
 server/node_modules/
 node_modules/
+Dockerfile
+.dockerignore
+README.md
+.next
+!next/static
+!next/standalone
+.git
 
 **/npm-debug.log
 **/yarn-error.log

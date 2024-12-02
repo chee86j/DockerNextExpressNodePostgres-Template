@@ -36,7 +36,7 @@ cd DockerNextExpressNodePostgres-Template
 ```
 
 ## .env
-DATABASE_URL=postgres://postgres:password@db:5432/todos_db
+DATABASE_URL=postgres://postgres:password@db:5433/todos_db
 
 
 ## The beauty of Docker Compose: One command to build everything and one to start everything.
