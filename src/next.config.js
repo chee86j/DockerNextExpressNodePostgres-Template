@@ -1,5 +1,1 @@
-module.exports = {
-  experimental: {
-    outputFileTracing: false,
-  },
-};
+module.exports = {};
